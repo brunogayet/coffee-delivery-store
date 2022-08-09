@@ -1,4 +1,4 @@
-export interface Drink {
+export interface Coffee {
   id: string
   title: string
   subtitle: string
@@ -8,7 +8,7 @@ export interface Drink {
 }
 
 interface CartState {
-  items: Drink[]
+  items: Coffee[]
 }
 
 export function cartReducer(state: CartState, action: any) {

@@ -1,8 +1,8 @@
-import { Drink } from '../../../../reducers/Cart/reducer'
+import { Coffee } from '../../../../reducers/Cart/reducer'
 import { StoreItem } from '../StoreItem'
 import { StoreContainer, StoreList } from './styles'
 
-const storeItems: Drink[] = [
+const storeItems: Coffee[] = [
   {
     id: '1',
     title: 'Expresso Tradicional',

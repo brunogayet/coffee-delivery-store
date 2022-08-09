@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { Drink } from '../../../../reducers/Cart/reducer'
+import { Coffee } from '../../../../reducers/Cart/reducer'
 
 import {
   ButtonOperationItemCart,
@@ -12,7 +12,7 @@ import {
 } from './styles'
 
 interface StoreItemProps {
-  item: Drink
+  item: Coffee
 }
 
 export function StoreItem({ item }: StoreItemProps) {
