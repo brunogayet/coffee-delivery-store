@@ -1,21 +1,48 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { Coffee } from '../../../../reducers/Cart/reducer'
+import { useContext, useState } from 'react'
+import { StoreContext } from '../../../../contexts/StoreContext'
+import { ListCoffee } from '../Store'
 
 import {
   ButtonOperationItemCart,
   CartButton,
+  ContainerButtonOperation,
   ContentStoreItem,
   FooterStoreItem,
   HeaderStoreItem,
   IncrementItemCart,
   StoreItemContainer,
 } from './styles'
-
 interface StoreItemProps {
-  item: Coffee
+  item: ListCoffee
 }
 
 export function StoreItem({ item }: StoreItemProps) {
+  const { addItemToCart } = useContext(StoreContext)
+  const [itemQty, setItemQty] = useState(1)
+
+  function handleIncrementItem() {
+    setItemQty((state) => state + 1)
+  }
+
+  function handleDecrementItem() {
+    if (itemQty > 1) {
+      setItemQty((state) => state - 1)
+    }
+  }
+
+  function handleAddItemToCart() {
+    const { id, title, price, image } = item
+
+    addItemToCart({
+      id,
+      title,
+      price,
+      image,
+      qty: itemQty,
+    })
+  }
+
   return (
     <StoreItemContainer>
       <HeaderStoreItem>
@@ -44,17 +71,22 @@ export function StoreItem({ item }: StoreItemProps) {
         </div>
 
         <IncrementItemCart>
-          <div>
-            <ButtonOperationItemCart>
+          <ContainerButtonOperation>
+            <ButtonOperationItemCart onClick={handleDecrementItem}>
               <Minus weight="bold" />
             </ButtonOperationItemCart>
-            <span>1</span>
-            <ButtonOperationItemCart>
+
+            <span>{itemQty}</span>
+
+            <ButtonOperationItemCart onClick={handleIncrementItem}>
               <Plus weight="bold" />
             </ButtonOperationItemCart>
-          </div>
+          </ContainerButtonOperation>
 
-          <CartButton>
+          <CartButton
+            onClick={handleAddItemToCart}
+            title="Adicionar item ao carrinho"
+          >
             <ShoppingCartSimple size={22} weight="fill" />
           </CartButton>
         </IncrementItemCart>

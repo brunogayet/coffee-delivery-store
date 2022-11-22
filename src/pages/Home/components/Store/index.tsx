@@ -1,8 +1,16 @@
-import { Coffee } from '../../../../reducers/Cart/reducer'
 import { StoreItem } from '../StoreItem'
 import { StoreContainer, StoreList } from './styles'
 
-const storeItems: Coffee[] = [
+export interface ListCoffee {
+  id: string
+  title: string
+  subtitle: string
+  price: number
+  tags: string[]
+  image: string
+}
+
+const storeItems: ListCoffee[] = [
   {
     id: '1',
     title: 'Expresso Tradicional',

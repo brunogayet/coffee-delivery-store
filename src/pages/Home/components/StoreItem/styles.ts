@@ -87,22 +87,22 @@ export const FooterStoreItem = styled.footer`
 export const IncrementItemCart = styled.div`
   display: flex;
   gap: 0.5rem;
+`
 
-  > div {
-    background-color: ${(props) => props.theme['gray-125']};
-    border-radius: 6px;
-    padding: 0rem 0.5rem;
+export const ContainerButtonOperation = styled.div`
+  background-color: ${(props) => props.theme['gray-125']};
+  border-radius: 6px;
+  padding: 0.5625rem 0.5rem;
 
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
-    > span {
-      width: 1.25rem;
-      height: 1.3125rem;
-      text-align: center;
-      color: ${(props) => props.theme['gray-800']};
-    }
+  > span {
+    width: 1.25rem;
+    height: 1.3125rem;
+    text-align: center;
+    color: ${(props) => props.theme['gray-800']};
   }
 `
 
@@ -113,6 +113,10 @@ export const ButtonOperationItemCart = styled.button`
   background-color: transparent;
   outline: 0;
   cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme['purple-700']};
+  }
 `
 
 export const CartButton = styled.button`
@@ -127,7 +131,13 @@ export const CartButton = styled.button`
 
   background-color: ${(props) => props.theme['purple-700']};
 
+  transition: background 0.2s;
+
   svg {
     color: ${(props) => props.theme['gray-75']};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme['purple-450']};
   }
 `

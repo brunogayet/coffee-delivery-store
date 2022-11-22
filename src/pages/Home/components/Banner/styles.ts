@@ -10,6 +10,11 @@ export const BannerContainer = styled.div`
     justify-content: flex-start;
 
     gap: 3.5rem;
+
+    img {
+      max-width: 476px;
+      max-height: 360px;
+    }
   }
 `
 
